@@ -70,7 +70,7 @@ view: gcp_billing_export {
   }
 
   dimension: credits { # Nested record
-    hidden: yes
+    hidden: no
     sql: ${TABLE}.credits ;;
   }
 
