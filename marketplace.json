@@ -21,7 +21,7 @@
     },
     "models": [
         {
-            "name": "block_gcp_billing_v2",
+            "name": "block_gcp_billing",
             "connection_constant": "CONNECTION_NAME"
         }
     ]
