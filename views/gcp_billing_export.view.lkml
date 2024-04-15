@@ -141,6 +141,17 @@ view: gcp_billing_export {
     sql: ${TABLE}.service ;;
   }
 
+  dimension: region_ab {
+    type: string
+    sql: CASE  WHEN ${gcp_billing_export_project.name} IN ("DEV - Advanced Analytics","dt-gdg-cdp-img-cmn-01","dt-gdg-cdp-sec-cmn-01","dt-gdg-cdp-dev-01","dt-gdg-cdp-lkr-prd-01","dt-gdg-cdp-prd-01","dt-gdg-cdp-qua-01") THEN "Digiturk CDP"
+               WHEN ${gcp_billing_export_project.name} IN ("bein-gdg-cdp-bic-01","bein-gdg-cdp-dev-01","bein-gdg-cdp-ing-01","bein-gdg-cdp-lkr-01","bein-gdg-cdp-prd-1","bein-gdg-cdp-qua-01","bein-gdg-cdp-shr-01","bein-gdg-cdp-tst-01") THEN "GROUP CDP"
+               WHEN ${gcp_billing_export_project.name} IN ("bein-apc-mediacdn-dev-01" , "bein-apc-mediacdn-prd-01", "bein-apc-mediacdn-tst-01" ) THEN "APAC Media CDN"
+               WHEN ${gcp_billing_export_project.name} IN ("bein-gdg-cdp-mena-prd-01", "bein-gdg-mena-cdp-dev-01", "bein-gdg-mena-cdp-prd-01", "bein-gdg-mena-cdp-qua-01", "bein-gdg-mena-grp-prd-01" ) THEN "MENA CDP"
+               WHEN ${gcp_billing_export_project.name} IN ("dt-gdg-vod-org-01") THEN "DigiTurk VOD Origin"
+               WHEN ${gcp_billing_export_project.name} IN ("dt-gdg-apigee-prd-01", "dt-gdg-apigee-qua-01") THEN "Apigee Hybrid"
+    ELSE NULL END;;
+  }
+
   dimension: sku { # Nested record
     hidden: yes
     sql: ${TABLE}.sku ;;

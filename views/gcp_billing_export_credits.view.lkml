@@ -16,6 +16,13 @@ view: gcp_billing_export_credits {
     sql: ${TABLE}.amount ;;
   }
 
+  dimension: credit_type {
+    group_label: "Credits"
+    description: "credit types"
+    type: string
+    sql: ${TABLE}.type ;;
+  }
+
   dimension: credit_name {
     group_label: "Credits"
     description: "Name of the credit applied to account"
