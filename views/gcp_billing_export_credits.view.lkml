@@ -16,7 +16,7 @@ view: gcp_billing_export_credits {
     sql: ${TABLE}.amount ;;
   }
 
-  dimension: credit_type {
+  dimension: credit_type_ {
     group_label: "Credits"
     description: "credit types"
     type: string
