@@ -597,3 +597,13 @@
     explore: gcp_billing_export
     listens_to_filters: []
     field: gcp_billing_export_project.name
+  - name: credit_type
+    title: credit_type
+    type: field_filter
+    default_value: ''
+    allow_multiple_values: true
+    required: false
+    model: block_gcp_billing
+    explore: gcp_billing_export
+    listens_to_filters: []
+    field: gcp_billing_export_credits.credit_name
